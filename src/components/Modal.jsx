@@ -21,8 +21,12 @@ export default class Modal extends Component {
                                         <div className="img-container  mx-auto text-center">
                                             <img src={img} alt="" />
                                         </div>
-                                        <Button onClick={() => { data.closeModal() }}>Back to products</Button>
-                                        <Button cart onClick={() => { data.closeModal() }}>Go to cart</Button>
+                                        <Link to='/'>
+                                            <Button onClick={() => { closeModal() }}>Back to products</Button>
+                                        </Link>
+                                        <Link to='/cart'>
+                                            <Button cart onClick={() => { closeModal() }}>Go to cart</Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +39,6 @@ export default class Modal extends Component {
 }
 
 const ModalWrapper = styled.div`
-border-radius: 0.3rem;
 position: fixed;
 top: 0;
 bottom: 0;
@@ -47,5 +50,7 @@ align-items: center;
 justify-content:center;
 #modal {
     background : var(--mainWhite);
+    border-radius: 0.3rem;
+
 }
 `
