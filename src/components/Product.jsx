@@ -22,7 +22,7 @@ export default class Product extends Component {
                                         data.addtoCart(id)
                                         data.openModal(id)
                                         }}>
-                                        {inCart ? (<p className="text-capitalize mb-0">In cart</p>) : (<i className="fas fa-cart-plus" >Add</i>)}
+                                        {inCart ? (<p className="text-capitalize mb-0">In cart</p>) : (<i className="fas fa-cart-plus" ></i>)}
                                     </button>
                                 </div>
                                 <div className="card-footer d-flex justify-content-between">

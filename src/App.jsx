@@ -22,7 +22,7 @@ function App() {
           <Route path="/Cart" component={Cart}></Route>
           <Route exact component={Default}></Route>
         </Switch>
-        <Modal/>
+        <Modal />
       </React.Fragment>
   );
 }
