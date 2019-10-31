@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Title from './Title'
 import CartItem from './CartItem';
 import {ProductConsumer} from '../context'
+import CartItemTitle from './CartItemTitle'
+
 export default class Cart extends Component {
     render() {
         return (
@@ -10,12 +12,16 @@ export default class Cart extends Component {
                     <div className="container">
                         <Title name="your" title="cart" />
                         <div className="row">
+                        
                              <ProductConsumer>
+                                 
                                  {(data) => {
-                                     return data.cart.map((product) => {
+                                     if (data.cart === []) return null 
+                                     else
+                                     {return data.cart.map((product) => {
                                          return <CartItem key={product.id} 
                                          product={product}/>
-                                     })
+                                     })}
                                  }}
                              </ProductConsumer>
                         </div>

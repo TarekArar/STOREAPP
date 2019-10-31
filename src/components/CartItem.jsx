@@ -7,41 +7,25 @@ import { ProductConsumer } from '../context';
 import { throwStatement } from '@babel/types';
 
 export default class cartItem extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { count: this.props.product.count }
-    }
+
     render() {
         const { id, title, img, price, company, info, inCart, count, total } = this.props.product
         return (
             <ProductConsumer>
                 {data => {
+                    const {incrementCount , decrementCount} = data
                     return (
                         <ItemContainer className="col-10 my-2 ">
                             <img src={img} alt="" style={{ height: '80px' }} />
                             <h3>{title}</h3>
                             <h3><bold>{price} $</bold> </h3>
                             <div>
-                                <button onClick={() => {
-
-                                    let count = this.state.count
-                                    if (count > 1) {
-                                        count--
-                                        this.setState(() => {
-                                            return { count }
-                                        })
-                                    }
-                                }}>-</button>
-                                <button>{this.state.count}</button>
-                                <button onClick={() => {
-
-                                    let count = this.state.count
-                                    count++
-                                    this.setState(() => {
-                                        return { count }
-                                    })
-                                }}>+</button>
+                                <button onClick={() =>  decrementCount(id) }>-</button>
+                                <button>{count}</button>
+                                <button onClick={() =>  incrementCount(id) }>+</button>
                             </div>
+                            <h3><bold>{total} $</bold> </h3>
+
                         </ItemContainer>
                     )
                 }}

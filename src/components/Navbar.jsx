@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom'
 import logo from '../logo.svg'
 import styled from "styled-components"
 import {Button} from './Button'
-export default class Navbar extends Component {
-    
+export default class Navbar extends Component {  
     render() {
         return (
             <Wrapper className="navbar navbar-expand-sm px-sm-10">

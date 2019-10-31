@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {storeProducts , detailProduct} from './data'
-import { get } from 'http';
 const ProductContext = React.createContext()
 //Provider 
 //Consumer
@@ -36,8 +35,34 @@ class ProductProvider extends Component {
             }
         }, () => {console.log(this.state);
         })
+    }
+
+    incrementCount = (id) => {
+        let tempCart = [...this.state.cart]
+        const index = tempCart.indexOf(this.getItem(id))
+        const product = tempCart[index]
+        product.count++
+        product.total = product.count * product.price
+        this.setState(() => {
+            return {cart:tempCart}
+        },() => {console.log(this.state);
+        })
+    }
+
+    decrementCount = (id) => {
+        let tempCart = [...this.state.cart]
+        const index = tempCart.indexOf(this.getItem(id))
+        const product = tempCart[index]
+        if(product.count > 1){
+            product.count-- 
+            product.total = product.count * product.price
+            this.setState(() => {
+                return {cart:tempCart}
+            })
+        }
         
     }
+
     componentDidMount(){
         this.setProducts()
     }
@@ -71,7 +96,9 @@ class ProductProvider extends Component {
             handleDetail:this.handleDetail, 
             addtoCart:this.addtoCart,
             openModal:this.openModal,
-            closeModal:this.closeModal
+            closeModal:this.closeModal,
+            incrementCount:this.incrementCount,
+            decrementCount:this.decrementCount
         }}>
                 {this.props.children}
             </ProductContext.Provider>
