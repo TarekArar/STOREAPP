@@ -27,11 +27,11 @@ export default class Details extends Component {
                                     <h4 className="text-blue">price: <span>$</span>{price}</h4>
                                     <p className="font-weight-bold text-capitalize mt-3 mb-0">some info about product:</p>
                                     <p className="text-muted beal">{info}</p>
-                                    <div >
+                                    <div className="mx-auto">
                                         <Link to='/'>
-                                        <Button className="col-5 my-2 mx-2">back to products</Button>
+                                        <Button className="col-10 col-lg-5 my-2 mx-2">back to products</Button>
                                         </Link>
-                                        <Button cart className="col-5 my-2 mx-2" disabled={inCart?true:false} onClick={()=>{
+                                        <Button cart className="col-10 col-lg-5 my-2 mx-2" disabled={inCart?true:false} onClick={()=>{
                                             data.addtoCart(id)
                                             data.openModal(id)
                                             }}>

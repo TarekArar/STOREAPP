@@ -18,15 +18,19 @@ export default class Modal extends Component {
                                 <div className="row">
                                     <div id="modal" className="col-8 col-md-6 col-lg-4 text-center mx-auto text-capitalized">
                                         <h3 className=" text-blue">item Added to cart</h3>
-                                        <div className="img-container  mx-auto text-center">
-                                            <img src={img} alt="" />
+                                        <div className="img-container  mx-auto">
+                                            <img src={img} alt="" className="col-12"/>
                                         </div>
+                                        <h3>{title}</h3>
+                                        <h3 className="text-muted">${price}</h3>
+                                        <div className="col-12">
                                         <Link to='/'>
-                                            <Button onClick={() => { closeModal() }}>Back to products</Button>
+                                            <Button className="col-10" onClick={() => { closeModal() }}>continue shopping</Button>
                                         </Link>
                                         <Link to='/cart'>
-                                            <Button cart onClick={() => { closeModal() }}>Go to cart</Button>
+                                            <Button className="col-10" cart onClick={() => { closeModal() }}>Go to cart</Button>
                                         </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -51,6 +55,8 @@ justify-content:center;
 #modal {
     background : var(--mainWhite);
     border-radius: 0.3rem;
+    box-sizing: content-box;
+    padding: 25px 20px;
 
 }
 `

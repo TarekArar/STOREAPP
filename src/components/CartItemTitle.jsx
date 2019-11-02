@@ -9,14 +9,29 @@ export default class cartItemTitle extends Component {
     render() {
 
         return (
-            <ItemContainer className="col-10 my-2 text-capitalize">
-                <h3>image</h3>                
-                <h3>title</h3>
-                <h3>price</h3>
-                <h3>quantity</h3>
-                <h3>total</h3>
+            <div className="container-fluid text-center d-none d-lg-block">
+                <div className="row">
+                    <div className="col-10 col-lg-2 mx-auto">
+                        <p className="text-uppercase">products</p>
+                    </div>
+                    <div className="col-10 col-lg-2 mx-auto">
+                        <p className="text-uppercase">name of product</p>
+                    </div>
+                    <div className="col-10 col-lg-2 mx-auto">
+                        <p className="text-uppercase">price</p>
+                    </div>
+                    <div className="col-10 col-lg-2 mx-auto">
+                        <p className="text-uppercase">quantity</p>
+                    </div>
+                    <div className="col-10 col-lg-2 mx-auto">
+                        <p className="text-uppercase">remove</p>
+                    </div>
+                    <div className="col-10 col-lg-2 mx-auto">
+                        <p className="text-uppercase">total</p>
+                    </div>
+                </div>
 
-            </ItemContainer>
+            </div>
         )
 
     }

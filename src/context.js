@@ -33,7 +33,6 @@ class ProductProvider extends Component {
             return {products:tempProducts,
                 cart: [...this.state.cart , product]
             }
-        }, () => {console.log(this.state);
         })
     }
 
@@ -45,7 +44,6 @@ class ProductProvider extends Component {
         product.total = product.count * product.price
         this.setState(() => {
             return {cart:tempCart}
-        },() => {console.log(this.state);
         })
     }
 
@@ -60,7 +58,19 @@ class ProductProvider extends Component {
                 return {cart:tempCart}
             })
         }
-        
+    }
+
+    removeItem = (id) => {
+        let tempCart = [...this.state.cart]
+        let products = [...this.state.products]
+        let index = tempCart.indexOf(this.getItem(id))
+        tempCart.splice(index, 1)
+        index = products.indexOf(this.getItem(id))
+        let product = products[index]
+        product.inCart = false
+        this.setState(() => {
+            return {cart:tempCart, products}
+        })
     }
 
     componentDidMount(){
@@ -98,7 +108,8 @@ class ProductProvider extends Component {
             openModal:this.openModal,
             closeModal:this.closeModal,
             incrementCount:this.incrementCount,
-            decrementCount:this.decrementCount
+            decrementCount:this.decrementCount,
+            removeItem:this.removeItem
         }}>
                 {this.props.children}
             </ProductContext.Provider>
