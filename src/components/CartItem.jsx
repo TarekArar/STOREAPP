@@ -30,10 +30,10 @@ export default class cartItem extends Component {
                                 <button className="mx-1 pd-4">{count}</button>
                                 <button className="mx-1 pd-4" onClick={() => incrementCount(id)}>+</button>
                             </div></div>
-                            <div className="col-10 text-center mx-auto col-lg-2">
+                            <div className="col-10 mx-auto text-center col-lg-2">
                                 <i class="fas fa-trash" style={{ fontSize: "25px", color: "#FEE006" }} onClick={() => { removeItem(id) }} ></i>
                             </div>
-                            <div className="col-10 text-center mx-auto col-lg-2">
+                            <div className="mt-2 col-10 mx-auto text-center col-lg-2">
                                 <p><strong>Item Total: ${total}</strong> </p>
                             </div>
 
@@ -45,6 +45,15 @@ export default class cartItem extends Component {
     }
 }
 
+cartItem.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        img: PropTypes.string,
+        price: PropTypes.number,
+        inCart: PropTypes.bool
+    }).isRequired
+}
 
 
 const ItemContainer = styled.div`
