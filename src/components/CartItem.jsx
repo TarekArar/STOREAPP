@@ -31,7 +31,7 @@ export default class cartItem extends Component {
                                 <button className="mx-1 pd-4" onClick={() => incrementCount(id)}>+</button>
                             </div></div>
                             <div className="col-10 mx-auto text-center col-lg-2">
-                                <i class="fas fa-trash" style={{ fontSize: "25px", color: "#FEE006" }} onClick={() => { removeItem(id) }} ></i>
+                                <i class="fas fa-trash" style={{ fontSize: "25px", color: "blue" }} onClick={() => { removeItem(id) }} ></i>
                             </div>
                             <div className="mt-2 col-10 mx-auto text-center col-lg-2">
                                 <p><strong>Item Total: ${total}</strong> </p>
